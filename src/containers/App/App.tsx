@@ -11,11 +11,15 @@ import { CustomFieldExtensionProvider } from "../../common/providers/CustomField
  * This will ensure the bundle contains only the core code and respective route bundle
  * improving the page load time
  */
+const Metspo = React.lazy(() => import("../CustomField/Metspo"));
+const Dropdown = React.lazy(() => import("../CustomField/Dropdown"));
+const LocalizedDropdown = React.lazy(() => import("../CustomField/LocalizedDropdown"));
 const CustomFieldExtension = React.lazy(() => import("../CustomField/CustomField"));
 const EntrySidebarExtension = React.lazy(() => import("../SidebarWidget/EntrySidebar"));
 const AppConfigurationExtension = React.lazy(() => import("../ConfigScreen/AppConfiguration"));
 const AssetSidebarExtension = React.lazy(() => import("../AssetSidebarWidget/AssetSidebar"));
 const StackDashboardExtension = React.lazy(() => import("../DashboardWidget/StackDashboard"));
+const EntrySidebarExtensionMLang = React.lazy(() => import("../SidebarWidget/EntrySidebarMLang"));
 const PageNotFound = React.lazy(() => import("../404/404"));
 const DefaultPage = React.lazy(() => import("../index"));
 
@@ -25,6 +29,36 @@ function App() {
       <MarketplaceAppProvider>
         <Routes>
           <Route path="/" element={<DefaultPage />} />
+          <Route
+            path="/metspo"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <Metspo />
+                </CustomFieldExtensionProvider>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/dropdown"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <Dropdown />
+                </CustomFieldExtensionProvider>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/localizeddropdown"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <LocalizedDropdown />
+                </CustomFieldExtensionProvider>
+              </Suspense>
+            }
+          />
           <Route
             path="/custom-field"
             element={
@@ -41,6 +75,16 @@ function App() {
               <Suspense>
                 <EntrySidebarExtensionProvider>
                   <EntrySidebarExtension />
+                </EntrySidebarExtensionProvider>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/sidebar-mlang"
+            element={
+              <Suspense>
+                <EntrySidebarExtensionProvider>
+                  <EntrySidebarExtensionMLang />
                 </EntrySidebarExtensionProvider>
               </Suspense>
             }

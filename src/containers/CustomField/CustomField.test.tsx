@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CustomFieldExtension from "./CustomField";
+import CustomFieldExtension from "./Metspo";
 import { CustomFieldTestProvider, TestProvider } from "../../test-utils/test-utils";
 
 test("CustomFieldExtension component", async () => {
