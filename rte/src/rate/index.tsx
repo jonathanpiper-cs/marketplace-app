@@ -9,8 +9,8 @@ export const createRateRTE = (RTE: any) => {
     }
 
     const Rate = RTE('plugins', () => ({
-        title: 'Plugins',
-        icon: <Icon style={{ padding: '0 6px' }} icon="Edit" size="original" />,
+        title: 'Text Plugins',
+        icon: <Icon style={{ padding: '0 6px' }} icon="Document" size="original" />,
         render: (props: any) => {<span>{props.children}</span>},
         displayOn: ['toolbar'],
         elementType: ['text']

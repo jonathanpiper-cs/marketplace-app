@@ -6,7 +6,7 @@ const COLORS = [
     { name: 'Orange', color: 'rgb(255,127,80)' },
     { name: 'Green', color: 'rgb(34,139,34)' },
     { name: 'Purple', color: 'rgb(138,43,226)' },
-    { name: 'Default', color: 'rgb(0,0,0)' },
+    { name: 'Default', color: '' },
 ]
 
 declare global {
@@ -62,14 +62,19 @@ const list = COLORS.map((color) => ({
     showAsActive: true,
     action: () => {
         const { rte } = window;
-        rte.addMark('font-color', color.color);
+        if (color.name === 'Default') {
+            rte.removeMark('font-color')
+        } else {
+            console.log(color.color)
+            rte.addMark('font-color', color.color);
+        }
     },
 }));
 
 const FCIcon: React.FC = () => {
     return (
         <Dropdown list={list} type={'click'} highlightActive={true}>
-            <Icon style={{ padding: '0 6px' }} icon="Edit" size="original" />
+            <Icon style={{ padding: '0 6px' }} icon="Edit" fill="blue" size="original" />
         </Dropdown>
     );
 };

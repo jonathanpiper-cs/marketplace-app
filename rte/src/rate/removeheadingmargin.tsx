@@ -10,13 +10,13 @@ declare global {
 const R: React.FC<any> = (props) => {
     const { leaf } = props;
     return (
-        <span style={{ margin: leaf['heaing-margin'] }}>{props.children}</span>
+        <span style={{ margin: leaf['heading-margin'] }}>{props.children}</span>
     )
 }
 
 export const removeHeadingMargin = (RTE: any) => {
 
-    const RemoveHeadingMargin = RTE('remove-heading-margin', () => ({
+    const RemoveHeadingMargin = RTE('heading-margin', () => ({
         title: 'Remove Heading Margin',
         icon: <Icon icon="MinusSign" />,
         render: (props: any) => {
@@ -24,7 +24,7 @@ export const removeHeadingMargin = (RTE: any) => {
         },
         displayOn: ['toolbar'],
         elementType: ['text']
-    }))
+    }));
 
     RemoveHeadingMargin.on('exec', (rte: any) => {
         if (!window.rte) {
@@ -34,14 +34,14 @@ export const removeHeadingMargin = (RTE: any) => {
         const curNode = rte.selection.get();
         const parentPath = curNode.anchor.path.slice(0, -1);
         const parentNode = rte.getNode(parentPath);
-        if (parentNode[0].type === 'h1') {
+        if (parentNode[0].type.substring(0, 1) === 'h') {
             if (rte.hasMark('heading-margin')) {
                 rte.removeMark('heading-margin');
             } else {
-                rte.addMark('heading-margin', '0px');
+                rte.addMark('heading-margin', 0);
             }
         }
-    })
+    });
 
     return RemoveHeadingMargin;
 }
