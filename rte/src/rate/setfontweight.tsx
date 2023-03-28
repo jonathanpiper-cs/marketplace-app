@@ -27,7 +27,6 @@ interface FontComponentProps {
 
 const FontComponent: React.FC<FontComponentProps> = (props) => {
     const { leaf } = props;
-    console.log(leaf)
     return (
         <span {...props.attributes} style={{ fontWeight: leaf['font-weight'] }}>
             {props.children}
@@ -72,8 +71,6 @@ const list = FONT_WEIGHTS.map((weight) => ({
         }
     },
 }));
-
-console.log(list)
 
 const FCIcon: React.FC = () => {
     return (

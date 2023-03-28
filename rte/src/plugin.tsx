@@ -5,7 +5,7 @@ import { removeHeadingMargin } from "./rate/removeheadingmargin";
 import { setFontColor } from "./rate/setfontcolor";
 import { setFontSize } from "./rate/setfontsize";
 import { setFontWeight } from "./rate/setfontweight";
-import "./index.css";
+import { insertBoilerplate } from "./rate/boilerplate";
 
 export default ContentstackSDK.init().then(async (sdk) => {
   const extensionObj = await sdk["location"];
@@ -17,12 +17,14 @@ export default ContentstackSDK.init().then(async (sdk) => {
   const SetFontColor = setFontColor(RTE);
   const SetFontSize = setFontSize(RTE);
   const SetFontWeight = setFontWeight(RTE);
+  const InsertBoilerplate = insertBoilerplate(RTE);
 
   Rate.addPlugins(RemoveHeadingMargin);
 
   return {
     Rate,
     RemoveHeadingMargin,
+    InsertBoilerplate,
     SetFontColor,
     SetFontSize,
     SetFontWeight

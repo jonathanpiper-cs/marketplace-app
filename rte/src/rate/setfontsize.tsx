@@ -26,7 +26,6 @@ interface FontComponentProps {
 
 const FontComponent: React.FC<FontComponentProps> = (props) => {
     const { leaf } = props;
-    console.log(leaf)
     return (
         <span {...props.attributes} style={{ fontSize: leaf['font-size'] }}>
             {props.children}
@@ -71,8 +70,6 @@ const list = FONT_SIZES.map((size) => ({
         }
     },
 }));
-
-console.log(list)
 
 const FCIcon: React.FC = () => {
     return (
