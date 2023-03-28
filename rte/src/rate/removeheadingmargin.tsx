@@ -30,7 +30,6 @@ export const removeHeadingMargin = (RTE: any) => {
         if (!window.rte) {
             window.rte = rte;
         }
-        // console.log(rte.selection.get())
         const curNode = rte.selection.get();
         const parentPath = curNode.anchor.path.slice(0, -1);
         const parentNode = rte.getNode(parentPath);
