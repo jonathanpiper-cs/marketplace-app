@@ -8,6 +8,12 @@ import { Paragraph } from "@contentstack/venus-components";
 import '@contentstack/venus-components/build/main.css';
 import { isEmpty } from "lodash";
 
+
+const getContentTypeData = async (stack: any, uid: string) => {
+    const b = await stack.getContentType(uid)
+    return await b;
+}
+
 const StackDashboardExtension = () => {
     const [stack, setStack] = useState<any>({});
     const [entries, setEntries] = useState<any[]>();
@@ -27,18 +33,13 @@ const StackDashboardExtension = () => {
         // var envs = await stack.getEnvironments();
         var conTypes = await stack.getContentTypes();
         var conTypeEntries: any[] = [];
-        // (async () => {
-        //     for await (const ct of conTypes.content_types) {
-        //         stack.ContentType(ct.uid).Entry.Query().find().then((result: any) => {
-        //             conTypeEntries.push({
-        //                 uid: ct.uid,
-        //                 entries: result
-        //             })
-        //         })
-        //     }
-        // })
-        // setEntries(conTypeEntries)
+        // console.log(conTypes);
+        conTypes.content_types.forEach((conType: any) => {
+            const b = getContentTypeData(stack, conType.uid);
+            console.log(b)
+        })
     });
+
 
     return (
         <div className="dashboard">
