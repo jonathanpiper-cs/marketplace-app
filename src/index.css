@@ -131,6 +131,111 @@ a {
   height: 52px;
 }
 
+.catchall-header {
+  margin: 0 20px;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.catchall-body {
+  width: 100%;
+  text-align: left;
+}
+
+.catchall-entries ul, li {
+  list-style: none;
+  padding: 8px;
+  margin-left: 30px;
+  line-height: 1.2em;
+}
+
+.catchall-entries ul ul {
+  padding-top: 4px
+}
+
+.catchall-entries p {
+  margin: 0 20px;
+  padding-bottom: 10px;
+  text-align: left;
+  line-height: 1.4em;
+}
+
+.catchall-schema p {
+  margin: 0 20px;
+  padding-bottom: 10px;
+  text-align: left;
+  line-height: 1.4em;
+}
+
+.catchall-schema ul, li {
+  font-size: 14px;
+  list-style: none;
+  padding: 8px;
+  margin-left: 30px;
+  line-height: 1.3em;
+}
+
+.catchall-schema ul ul {
+  padding-top: 4px
+}
+
+.catchall-entry {
+  margin-left: 20px;
+  margin-bottom: 4px;
+  padding-left: 20px;
+}
+
+.catchall-rendered {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.catchall-body-rendered {
+  width: 100%;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.catchall-bigbutton {
+  margin-top: 20px;
+  justify-self: center;
+  grid-column: span 3;
+}
+
+.catchall-entry-rendered {
+  font-size: 14px;
+  line-height: .4em;
+}
+
+.catchall-rendered p {
+  margin-left: 20px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.catchall-entry p {
+  font-size: 14px;
+  line-height: .4em;
+}
+
+.catchall-body {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+}
+
+.catchall-savebutton {
+  margin-top: 20px;
+}
+
+.catchall-action {
+  display: flex;
+  gap: 10px;
+}
+
+.catchall-header p {
+  text-align: left;
+}
+
 .met-inspo-header {
   text-align: center;
   display: flex;

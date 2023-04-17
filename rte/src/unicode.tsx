@@ -38,7 +38,7 @@ export const insertUniCH = (RTE: any) => {
             return <UniCHComponent {...props} />;
         },
         display: ['toolbar'],
-        elementType: ['text'],
+        elementType: ['inline'],
     }));
 
     UniCH.on('exec', (rte: any) => {
@@ -72,7 +72,7 @@ const list = UNI_CH.map((ch) => ({
         }
         rte.insertText(ch.enc)
         rte.selection.set(selection);
-        rte.addMark('uni-ch', ch.enc);
+        rte.addMark('uni-ch', true);
     },
 }));
 

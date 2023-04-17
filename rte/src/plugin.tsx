@@ -9,6 +9,7 @@ import { insertBoilerplate } from "./rate/boilerplate";
 import { cloudinary } from "./rate/cloudinary";
 import { insertUniCH } from "./unicode";
 import { highlight } from "./highlight";
+import { vimeo } from "./vimeo";
 
 export default ContentstackSDK.init().then(async (sdk) => {
   const extensionObj = await sdk["location"];
@@ -26,6 +27,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
   const InsertBoilerplate = insertBoilerplate(RTE);
   const InsertUniCH = insertUniCH(RTE);
   const Highlight = highlight(RTE)
+  const Vimeo = vimeo(RTE);
 
   // Rate.addPlugins(RemoveHeadingMargin, Cloudinary);
 
@@ -37,6 +39,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
     SetFontSize,
     SetFontWeight,
     InsertUniCH,
-    Highlight
+    Highlight,
+    Vimeo
   };
 });

@@ -14,6 +14,7 @@ import { CustomFieldExtensionProvider } from "../../common/providers/CustomField
 const Metspo = React.lazy(() => import("../CustomField/Metspo"));
 const Dropdown = React.lazy(() => import("../CustomField/Dropdown"));
 const LocalizedDropdown = React.lazy(() => import("../CustomField/LocalizedDropdown"));
+const CatchAll = React.lazy(() => import("../CustomField/CatchAll"));
 const CustomFieldExtension = React.lazy(() => import("../CustomField/CustomField"));
 const EntrySidebarExtension = React.lazy(() => import("../SidebarWidget/EntrySidebar"));
 const AppConfigurationExtension = React.lazy(() => import("../ConfigScreen/AppConfiguration"));
@@ -75,6 +76,16 @@ function App() {
               <Suspense>
                 <EntrySidebarExtensionProvider>
                   <EntrySidebarExtension />
+                </EntrySidebarExtensionProvider>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/catchall"
+            element={
+              <Suspense>
+                <EntrySidebarExtensionProvider>
+                  <CatchAll />
                 </EntrySidebarExtensionProvider>
               </Suspense>
             }

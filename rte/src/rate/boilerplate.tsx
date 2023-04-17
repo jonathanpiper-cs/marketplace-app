@@ -32,7 +32,7 @@ export const insertBoilerplate = (RTE: any) => {
         }
         if (rte.getVariable('boilerplateSet') === null || rte.getVariable('boilerplateSet') === false) {
             rte.insertNode({
-                type: 'div',
+                type: 'h1',
                 children: [
                     {
                         type: 'h1',
@@ -43,7 +43,8 @@ export const insertBoilerplate = (RTE: any) => {
                     {
                         type: 'p',
                         children: [{
-                            text: `Here's some text.`
+                            text: `Here's some text.`,
+                            highlight: 40
                         }]
                     }
                 ]
