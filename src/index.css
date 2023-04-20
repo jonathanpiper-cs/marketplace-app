@@ -220,7 +220,7 @@ a {
 
 .catchall-body {
   display: grid;
-  grid-template-columns: 1fr 120px 1fr;
+  /* grid-template-columns: 1fr 120px 1fr; */
 }
 
 .catchall-savebutton {
