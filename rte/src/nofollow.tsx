@@ -22,7 +22,6 @@ export const nofollow = (RTE: any) => {
 
         const handleSubmit = (e: any) => {
             e.preventDefault();
-            console.log(props);
             const rteUrl = rte.getVariable('url');
             const rteDisplay = rte.getVariable('display');
             rte.insertNode(
@@ -48,7 +47,7 @@ export const nofollow = (RTE: any) => {
                             <FieldLabel required htmlFor="url">
                                 URL
                             </FieldLabel>
-                            <TextInput required value={rte.getVariable('url')} placeholder="Enter nofollow URL" name="url" onChange={(e: any) => {rte.setVariable('url', e.target.value);console.log(rte.getVariable('url'));}}></TextInput>
+                            <TextInput required value={rte.getVariable('url')} placeholder="Enter nofollow URL" name="url" onChange={(e: any) => rte.setVariable('url', e.target.value)}></TextInput>
                             <ValidationMessage style={{marginLeft: 10}}>Required</ValidationMessage>
                         </Field>
                         <Field>
@@ -88,7 +87,6 @@ export const nofollow = (RTE: any) => {
         }
         rte.setVariable('url', '');
         rte.setVariable('display', '');
-        console.log('var', rte.getVariable('url').length)
         cbModal({
             component: (props: any) => <ModalComponent rte={rte} {...props} />,
             modalProps: {
