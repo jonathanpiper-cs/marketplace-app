@@ -1,5 +1,5 @@
 import { Icon, Form, Field, FieldLabel, TextInput, cbModal, ModalHeader, ModalBody, ModalFooter, ButtonGroup, Button, ValidationMessage } from "@contentstack/venus-components";
-import React from 'react';
+import React, {useState} from 'react';
 
 declare global {
     interface Window {
@@ -19,6 +19,7 @@ export const nofollow = (RTE: any) => {
 
     const ModalComponent = (props: any) => {
         const { rte } = props;
+        const [submitDisabled, setSubmitDisabled] = useState(true)
 
         const handleSubmit = (e: any) => {
             e.preventDefault();
@@ -36,19 +37,23 @@ export const nofollow = (RTE: any) => {
             );
             props.closeModal();
         };
+        
+        const validateURL = (value: string) => {
+            rte.setVariable('url', value);
+            setSubmitDisabled(value === '' ? true : false);
+        }
 
         return (
             <>
                 <ModalHeader title='Insert nofollow link' closeModal={props.closeModal} />
-
                 <ModalBody className='modalBodyCustomClass'>
                     <Form>
                         <Field>
                             <FieldLabel required htmlFor="url">
                                 URL
                             </FieldLabel>
-                            <TextInput required value={rte.getVariable('url')} placeholder="Enter nofollow URL" name="url" onChange={(e: any) => rte.setVariable('url', e.target.value)}></TextInput>
-                            <ValidationMessage style={{marginLeft: 10}}>Required</ValidationMessage>
+                            <TextInput required value={rte.getVariable('url')} placeholder="Enter nofollow URL" id="nofollowurl" name="url" onChange={(e: any) => validateURL(e.target.value)}></TextInput>
+                            <ValidationMessage style={{ marginLeft: 10 }}>Required</ValidationMessage>
                         </Field>
                         <Field>
                             <FieldLabel required htmlFor="display">
@@ -64,7 +69,7 @@ export const nofollow = (RTE: any) => {
                         <Button buttonType='light' onClick={() => props.closeModal()}>
                             Cancel
                         </Button>
-                        <Button onClick={handleSubmit} disabled={rte.getVariable('url').length === 0 ? true : false}>Save</Button>
+                        <Button onClick={handleSubmit} disabled={submitDisabled}>Save</Button>
                     </ButtonGroup>
                 </ModalFooter>
             </>
@@ -75,7 +80,7 @@ export const nofollow = (RTE: any) => {
         title: 'Insert Nofollow Link',
         icon: <Icon icon={'LinkSmall'} />,
         render: (props: any) => {
-            return <NoFollowComponent {...props}/>;
+            return <NoFollowComponent {...props} />;
         },
         display: ['toolbar'],
         elementType: ['inline'],
