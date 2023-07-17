@@ -11,13 +11,14 @@ import { insertUniCH } from "./unicode";
 import { highlight } from "./highlight";
 // import { vimeo } from "./vimeo";
 import { nofollow } from "./nofollow";
+import { html } from "./html";
+import { getEntryValue } from './getEntryValue';
 
 export default ContentstackSDK.init().then(async (sdk) => {
   const extensionObj = await sdk["location"];
+  console.log(extensionObj)
   const RTE = await extensionObj["RTEPlugin"];
   if (!RTE) return;
-
-  console.log(RTE)
 
   // const Rate = createRateRTE(RTE)
   // const RemoveHeadingMargin = removeHeadingMargin(RTE);
@@ -30,6 +31,8 @@ export default ContentstackSDK.init().then(async (sdk) => {
   const Highlight = highlight(RTE)
   // const Vimeo = vimeo(RTE);
   const Nofollow = nofollow(RTE)
+  const Html = html(RTE)
+  const GetEntryValue = getEntryValue(RTE);
 
   // Rate.addPlugins(RemoveHeadingMargin, Cloudinary);
 
@@ -43,6 +46,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
     InsertUniCH,
     Highlight,
     // Vimeo,
-    Nofollow
+    Nofollow,
+    Html
   };
 });

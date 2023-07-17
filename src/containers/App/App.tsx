@@ -21,8 +21,11 @@ const AppConfigurationExtension = React.lazy(() => import("../ConfigScreen/AppCo
 const AssetSidebarExtension = React.lazy(() => import("../AssetSidebarWidget/AssetSidebar"));
 const StackDashboardExtension = React.lazy(() => import("../DashboardWidget/StackDashboard"));
 const EntrySidebarExtensionMLang = React.lazy(() => import("../SidebarWidget/EntrySidebarMLang"));
+const BCCTA = React.lazy(() => import("../CustomField/BCCTA"));
 const PageNotFound = React.lazy(() => import("../404/404"));
 const DefaultPage = React.lazy(() => import("../index"));
+const GetConstructorCategory = React.lazy(() => import("../CustomField/GetCnstrctrCat"));
+const ConstructorIngest = React.lazy(() => import("../ConfigScreen/Constructor Ingest"))
 
 function App() {
   return (
@@ -60,6 +63,16 @@ function App() {
               </Suspense>
             }
           />
+                    <Route
+            path="/bccta"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <BCCTA />
+                </CustomFieldExtensionProvider>
+              </Suspense>
+            }
+          />
           <Route
             path="/custom-field"
             element={
@@ -90,6 +103,16 @@ function App() {
               </Suspense>
             }
           />
+                    <Route
+            path="/getcnstrctr"
+            element={
+              <Suspense>
+                <EntrySidebarExtensionProvider>
+                  <GetConstructorCategory />
+                </EntrySidebarExtensionProvider>
+              </Suspense>
+            }
+          />
           <Route
             path="/sidebar-mlang"
             element={
@@ -100,12 +123,22 @@ function App() {
               </Suspense>
             }
           />
-          <Route
+          {/* <Route
             path="/app-configuration"
             element={
               <Suspense>
                 <AppConfigurationExtensionProvider>
                   <AppConfigurationExtension />
+                </AppConfigurationExtensionProvider>
+              </Suspense>
+            }
+          /> */}
+                    <Route
+            path="/constructor-ingest"
+            element={
+              <Suspense>
+                <AppConfigurationExtensionProvider>
+                  <ConstructorIngest />
                 </AppConfigurationExtensionProvider>
               </Suspense>
             }

@@ -82,10 +82,10 @@ a {
   display: flex;
   width: auto;
   height: 575px;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   border: 1px dashed #a9b6cb;
-  text-align: center;
+  /* text-align: center; */
   margin: 15px;
   border-radius: 8px;
 }
@@ -117,6 +117,10 @@ a {
   height: 218px;
 }
 
+.bc-cta {
+  height: 20px;
+}
+
 .custom-field-content {
   padding: 20px 0;
 }
@@ -142,7 +146,8 @@ a {
   text-align: left;
 }
 
-.catchall-entries ul, li {
+.catchall-entries ul,
+li {
   list-style: none;
   padding: 8px;
   margin-left: 30px;
@@ -150,7 +155,7 @@ a {
 }
 
 .catchall-entries ul ul {
-  padding-top: 4px
+  padding-top: 4px;
 }
 
 .catchall-entries p {
@@ -167,7 +172,8 @@ a {
   line-height: 1.4em;
 }
 
-.catchall-schema ul, li {
+.catchall-schema ul,
+li {
   font-size: 14px;
   list-style: none;
   padding: 8px;
@@ -176,7 +182,7 @@ a {
 }
 
 .catchall-schema ul ul {
-  padding-top: 4px
+  padding-top: 4px;
 }
 
 .catchall-entry {
@@ -204,7 +210,7 @@ a {
 
 .catchall-entry-rendered {
   font-size: 14px;
-  line-height: .4em;
+  line-height: 0.4em;
 }
 
 .catchall-rendered p {
@@ -215,7 +221,7 @@ a {
 
 .catchall-entry p {
   font-size: 14px;
-  line-height: .4em;
+  line-height: 0.4em;
 }
 
 .catchall-body {
@@ -234,6 +240,23 @@ a {
 
 .catchall-header p {
   text-align: left;
+}
+
+.constructor-cats {
+  padding: 0 20px;
+}
+
+.constructor-cats h6 {
+  padding-bottom: 8px;
+}
+
+.constructor-cats li {
+  margin-bottom: 2px;
+  font-size: 16px;
+}
+
+.constructor-cats-config {
+  padding: 10px;
 }
 
 .met-inspo-header {
@@ -297,19 +320,36 @@ a {
 .dashboard {
   box-sizing: border-box;
   display: flex;
-  width: auto;
-  height: 320px;
+  width: 100%;
+  /* height: 320px; */
   justify-content: center;
   align-items: center;
 }
 
 .dashboard-container {
-  padding: 8px 0px 8px 0px;
+  width: 100%;
 }
 
 .dashboard-icon {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+}
+
+.large-entries-list {
+  margin: 8px;
+  width: 100%;
+}
+
+.large-entries-list table {
+  width: 100%;
+}
+
+.large-entries-list tbody td {
+  padding: 12px;
+}
+
+.large-entries-list table tbody tr:nth-child(even) {
+  background-color: #eeeeee;
 }
 
 /* entry sidebar styles */

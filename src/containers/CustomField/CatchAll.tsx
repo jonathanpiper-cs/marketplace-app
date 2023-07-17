@@ -28,11 +28,13 @@ const CatchAll = () => {
         setUnsaved(true);
         const response = await fetch(endpoint, { headers });
         const json = await response.json();
-        setCatchallData(json.data);
+        console.log(json);
+        setCatchallData(json);
     }
 
     useEffect(() => {
         ContentstackAppSDK.init().then(async (appSDK: any) => {
+            console.log(appSDK);
             const customFieldObject = await appSDK.location.CustomField;
             setCustomField(customFieldObject);
             var fieldData = await customFieldObject.field.getData()
