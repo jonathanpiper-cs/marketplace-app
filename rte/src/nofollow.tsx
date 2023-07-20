@@ -37,25 +37,16 @@ export const nofollow = (RTE: any) => {
       e.preventDefault();
       const rteUrl = rte.getVariable("url");
       const rteDisplay = rte.getVariable("display");
-      rte.insertNode({
-        type: "embed",
-        attrs: {
-          "display-type": "display",
-          src:
-            "https://img.freepik.com/free-photo/young-happy-man-with-thumbs-up-sign-casuals-isolated-white-background_186202-4730.jpg",
-        },
-        children: [{ text: "" }],
-      });
-      // rte.insertNode(
-      //     {
-      //         type: "a-nofollow",
-      //         attrs: {
-      //             url: rteUrl,
-      //             nofollow: true
-      //         },
-      //         children: [{ text: rteDisplay, nofollow: true }],
-      //     }
-      // );
+      rte.insertNode(
+          {
+              type: "a-nofollow",
+              attrs: {
+                  url: rteUrl,
+                  nofollow: true
+              },
+              children: [{ text: rteDisplay, nofollow: true }],
+          }
+      );
       props.closeModal();
     };
 
