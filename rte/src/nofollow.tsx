@@ -19,6 +19,7 @@ declare global {
     rte: any;
   }
 }
+
 const NoFollowComponent: any = (props: any) => {
   console.log(props);
   return (
