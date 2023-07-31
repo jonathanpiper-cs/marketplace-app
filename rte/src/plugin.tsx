@@ -16,27 +16,35 @@ export default ContentstackSDK.init().then(async (sdk) => {
   const RTE = await extensionObj["RTEPlugin"];
   if (!RTE) return;
 
+  const Nofollow = nofollow(RTE)
+
+  return {
+    Nofollow
+  }
+});
+
   // const Rate = createRateRTE(RTE)
   // const RemoveHeadingMargin = removeHeadingMargin(RTE);
-  const SetFontColor = setFontColor(RTE);
-  const SetFontSize = setFontSize(RTE);
-  const SetFontWeight = setFontWeight(RTE);
-  const InsertBoilerplate = insertBoilerplate(RTE);
-  const InsertUniCH = insertUniCH(RTE);
-  const Highlight = highlight(RTE)
-  const Nofollow = nofollow(RTE)
-  const Html = html(RTE)
+  // const SetFontColor = setFontColor(RTE);
+  // const SetFontSize = setFontSize(RTE);
+  // const SetFontWeight = setFontWeight(RTE);
+  // const InsertBoilerplate = insertBoilerplate(RTE);
+  // const InsertUniCH = insertUniCH(RTE);
+  // const Highlight = highlight(RTE)
+  // const Nofollow = nofollow(RTE)
+  // const Html = html(RTE)
 
   // Rate.addPlugins(RemoveHeadingMargin, Cloudinary);
 
-  return {
-    InsertBoilerplate,
-    SetFontColor,
-    SetFontSize,
-    SetFontWeight,
-    InsertUniCH,
-    Highlight,
-    Nofollow,
-    Html
-  };
-});
+
+
+  // return {
+  //   InsertBoilerplate,
+  //   SetFontColor,
+  //   SetFontSize,
+  //   SetFontWeight,
+  //   InsertUniCH,
+  //   Highlight,
+  //   Nofollow,
+  //   Html
+  // };
