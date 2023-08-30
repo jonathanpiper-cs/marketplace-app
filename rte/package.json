@@ -41,7 +41,7 @@
         "@cloudinary/react": "^1.11.2",
         "@cloudinary/url-gen": "^1.9.2",
         "@contentstack/app-sdk": "^1.1.1",
-        "@contentstack/venus-components": "1.0.6",
+        "@contentstack/venus-components": "^2.0.0",
         "@liquify/prettify": "^0.5.5-beta.1",
         "@types/express": "4.17.2",
         "@types/express-serve-static-core": "4.17.20",
