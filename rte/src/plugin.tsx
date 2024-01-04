@@ -20,7 +20,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
   if (!RTE) return;
 
   // const Nofollow = nofollow(RTE);
-//   const AddWidth = addWidth(RTE);
+  //   const AddWidth = addWidth(RTE);
   // const SetFontWeight = setFontWeight(RTE);
 
   // return {
@@ -32,11 +32,11 @@ export default ContentstackSDK.init().then(async (sdk) => {
   // const RemoveHeadingMargin = removeHeadingMargin(RTE);
   const SetFontColorPlugin = SetFontColor(RTE);
   const SetFontSize = setFontSize(RTE);
-//   const SetFontWeight = setFontWeight(RTE);
+  //   const SetFontWeight = setFontWeight(RTE);
   const InsertBoilerplate = insertBoilerplate(RTE);
   const InsertUniCH = insertUniCH(RTE);
   // const Highlight = highlight(RTE)
-//   const Nofollow = nofollow(RTE);
+  //   const Nofollow = nofollow(RTE);
   // const Html = html(RTE)
 
   // const AddWidth = addWidth(RTE);
