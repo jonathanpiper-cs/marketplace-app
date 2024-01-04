@@ -15,7 +15,6 @@ import { nofollow } from "./nofollow";
 
 export default ContentstackSDK.init().then(async (sdk) => {
   const extensionObj = await sdk["location"];
-  console.log(extensionObj);
   const RTE = extensionObj["RTEPlugin"];
   if (!RTE) return;
 
@@ -36,7 +35,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
   const InsertBoilerplate = insertBoilerplate(RTE);
   const InsertUniCH = insertUniCH(RTE);
   // const Highlight = highlight(RTE)
-  //   const Nofollow = nofollow(RTE);
+    const Nofollow = nofollow(RTE);
   // const Html = html(RTE)
 
   // const AddWidth = addWidth(RTE);
@@ -52,7 +51,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
     // SetFontWeight,
     InsertUniCH,
     // Highlight,
-    // Nofollow,
+    Nofollow,
     // Html
   };
 });
