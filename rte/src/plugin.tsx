@@ -8,7 +8,7 @@ import { insertUniCH } from "./unicode";
 // import { highlight } from "./highlight";
 // import { addWidth } from "./addWidth";
 // import { html } from "./html";
-// import { nofollow } from "./nofollow";
+import { nofollow } from "./nofollow";
 
 export default ContentstackSDK.init().then(async (sdk) => {
   const extensionObj = await sdk["location"];
@@ -23,7 +23,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
   //   const InsertBoilerplate = insertBoilerplate(RTE);
   const InsertUniCH = insertUniCH(RTE);
   // const Highlight = highlight(RTE)
-  //   const Nofollow = nofollow(RTE);
+    const Nofollow = nofollow(RTE);
   // const Html = html(RTE)
 
   // const AddWidth = addWidth(RTE);
@@ -39,7 +39,7 @@ export default ContentstackSDK.init().then(async (sdk) => {
     // SetFontWeight,
     InsertUniCH,
     // Highlight,
-    // Nofollow,
+    Nofollow,
     // Html
   };
 });
