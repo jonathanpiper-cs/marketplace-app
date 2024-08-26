@@ -25,7 +25,9 @@ const BCCTA = React.lazy(() => import("../CustomField/BCCTA"));
 const PageNotFound = React.lazy(() => import("../404/404"));
 const DefaultPage = React.lazy(() => import("../index"));
 const GetConstructorCategory = React.lazy(() => import("../CustomField/GetCnstrctrCat"));
-const ConstructorIngest = React.lazy(() => import("../ConfigScreen/Constructor Ingest"))
+const ConstructorIngest = React.lazy(() => import("../ConfigScreen/Constructor Ingest"));
+const RexelAtrributes = React.lazy(() => import("../CustomField/Rexel-Attributes"));
+const RexelCategories = React.lazy(() => import("../CustomField/Rexel-Categories"));
 
 function App() {
   return (
@@ -63,7 +65,7 @@ function App() {
               </Suspense>
             }
           />
-                    <Route
+          <Route
             path="/bccta"
             element={
               <Suspense>
@@ -103,7 +105,7 @@ function App() {
               </Suspense>
             }
           />
-                    <Route
+          <Route
             path="/getcnstrctr"
             element={
               <Suspense>
@@ -133,7 +135,7 @@ function App() {
               </Suspense>
             }
           /> */}
-                    <Route
+          <Route
             path="/constructor-ingest"
             element={
               <Suspense>
@@ -156,6 +158,26 @@ function App() {
             element={
               <Suspense>
                 <StackDashboardExtension />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/rexelattributes"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <RexelAtrributes />
+                </CustomFieldExtensionProvider>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/rexelcategories"
+            element={
+              <Suspense>
+                <CustomFieldExtensionProvider>
+                  <RexelCategories />
+                </CustomFieldExtensionProvider>
               </Suspense>
             }
           />

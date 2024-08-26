@@ -1,6 +1,6 @@
-import { Icon, Dropdown, Paragraph } from "@contentstack/venus-components";
+import { Icon, Dropdown } from "@contentstack/venus-components";
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import "./index.css";
 
 const COLORS = [
@@ -17,11 +17,11 @@ declare global {
   }
 }
 
-const activeElement = () => {
-  return { backgroundColor: "#6c5ce7", color: "white" };
+const activeElement = (color: any) => {
+  return { color: color, fontSize: "18px" };
 };
 const defaultElement = (color: any) => {
-  return { backgroundColor: "#fff", color: color };
+  return { color: color, fontSize: "14px" };
 };
 
 const ColorComponent = (props) => {
@@ -34,13 +34,12 @@ const ColorComponent = (props) => {
 };
 
 export const SetFontColor = (RTE: any) => {
-  let rtePlaceholder;
   let selectedColor;
   let list = COLORS.map((color) => {
     return {
       label: (
         <span style={{ color: color.color, display: "flex" }} id={color.color}>
-          <Paragraph text={color.name} />
+          <span>{color.name}</span>
         </span>
       ),
       value: color.color,
@@ -65,22 +64,21 @@ export const SetFontColor = (RTE: any) => {
   }));
 
   FontColor.on("exec", (rte: any) => {
-    rtePlaceholder = rte;
     if (!window.rte) {
       window.rte = rte;
     }
     const sel = rte.selection.get();
-    console.log(rte, sel)
+    // console.log(rte, sel)
     if (sel) {
       const comp = rte.getNode(sel.anchor.path)[0];
       selectedColor = comp.fontColor ? comp.fontColor : "none";
-      console.log(comp, selectedColor)
+    //   console.log(comp, selectedColor)
       list.forEach((m) => {
         if (m.value !== selectedColor) {
           m.label.props = { ...m.label.props, style: defaultElement(m.value) };
         } else {
-          console.log(m, selectedColor);
-          m.label.props = { ...m.label.props, style: activeElement() };
+        //   console.log(m, selectedColor);
+          m.label.props = { ...m.label.props, style: activeElement(m.value) };
         }
       });
     }
@@ -95,13 +93,8 @@ export const SetFontColor = (RTE: any) => {
 
 const Droppy = (props) => {
   const { list } = props;
-  const handleChange = (e) => {
-    const el = document.getElementById(e.value).parentElement;
-    // el.classList.add('style-module_dropdown__menu__default__list--active__T7iCN');
-    // console.log(e, el);
-  };
   return (
-    <Dropdown list={list} onChange={handleChange} type={"click"} closeAfterSelect highlightActive>
+    <Dropdown list={list} type={"click"} closeAfterSelect highlightActive>
       <Icon style={{ padding: "0 6px" }} icon="Edit" fill="blue" size="original" />
     </Dropdown>
   );
