@@ -1,10 +1,4 @@
 declare const _default: Promise<{
-    SetFontWeight: any;
-    AddWidth: any;
-    InsertBoilerplate: any;
-    SetFontColor: any;
-    SetFontSize: any;
-    InsertUniCH: any;
-    Nofollow: any;
-} | undefined>;
+    SetFontColorPlugin: any;
+}>;
 export default _default;

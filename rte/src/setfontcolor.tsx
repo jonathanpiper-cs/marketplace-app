@@ -1,5 +1,5 @@
 import { Icon, Dropdown } from "@contentstack/venus-components";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 // import ReactDOM from "react-dom";
 import "./index.css";
 
@@ -57,7 +57,7 @@ export const SetFontColor = (RTE: any) => {
     title: "Set Font Color",
     icon: <FCIcon />,
     render: (props: any) => {
-      return <ColorComponent {...props} />;
+      return <ColorComponent {...props} name="doesthiswork" />;
     },
     display: ["toolbar"],
     elementType: ["text"],
@@ -72,12 +72,12 @@ export const SetFontColor = (RTE: any) => {
     if (sel) {
       const comp = rte.getNode(sel.anchor.path)[0];
       selectedColor = comp.fontColor ? comp.fontColor : "none";
-    //   console.log(comp, selectedColor)
+      //   console.log(comp, selectedColor)
       list.forEach((m) => {
         if (m.value !== selectedColor) {
           m.label.props = { ...m.label.props, style: defaultElement(m.value) };
         } else {
-        //   console.log(m, selectedColor);
+          //   console.log(m, selectedColor);
           m.label.props = { ...m.label.props, style: activeElement(m.value) };
         }
       });
@@ -85,7 +85,7 @@ export const SetFontColor = (RTE: any) => {
   });
 
   const FCIcon = () => {
-    return <Droppy list={list} />;
+    return <Droppy list={list} name="howaboutthis" />;
   };
 
   return FontColor;
@@ -93,8 +93,27 @@ export const SetFontColor = (RTE: any) => {
 
 const Droppy = (props) => {
   const { list } = props;
+  let keys: string[] = [];
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (keys.indexOf(e.key) === -1) keys.push(e.key);
+    };
+    document.addEventListener("keydown", handleKeyDown, true);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+  useEffect(() => {
+    const handleKeyUp = (e) => {
+      keys.splice(keys.indexOf(e.key), 1);
+    };
+    document.addEventListener("keyup", handleKeyUp, true);
+    return () => {
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  });
   return (
-    <Dropdown list={list} type={"click"} closeAfterSelect highlightActive>
+    <Dropdown list={list} type={"click"} closeAfterSelect>
       <Icon style={{ padding: "0 6px" }} icon="Edit" fill="blue" size="original" />
     </Dropdown>
   );
