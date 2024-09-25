@@ -90,9 +90,9 @@ const EntrySidebarExtension = () => {
       setAsset(sidebar.getData());
       sidebar.updateWidth(400);
       sidebar.onSave(() => setUnsavedChanges(false));
-      const metadata = await appSDK.metadata.retrieveMetaData({uid: "cs8c1dcfe58ede18cc"});
+      const metadata = await appSDK.metadata.retrieveMetaData({uid: "METADATA_UID"});
       console.log('metadata', metadata);
-      appSDK.metadata.updateMetaData({uid: "cs8c1dcfe58ede18cc", thisValue: "changing this now!!"});
+      appSDK.metadata.updateMetaData({uid: "METADATA_UID", thisValue: "changing this now!!"});
     });
   }, []);
 
