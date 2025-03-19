@@ -40,7 +40,7 @@
 	"dependencies": {
 		"@cloudinary/react": "^1.11.2",
 		"@cloudinary/url-gen": "^1.9.2",
-		"@contentstack/app-sdk": "^1.1.1",
+		"@contentstack/app-sdk": "^2.2.0",
 		"@contentstack/venus-components": "^2.0.0",
 		"@liquify/prettify": "^0.5.5-beta.1",
 		"@types/express": "4.17.2",

@@ -18,7 +18,7 @@ const CatchAll = React.lazy(() => import("../CustomField/CatchAll"));
 const CustomFieldExtension = React.lazy(() => import("../CustomField/CustomField"));
 const EntrySidebarExtension = React.lazy(() => import("../SidebarWidget/EntrySidebar"));
 const AppConfigurationExtension = React.lazy(() => import("../ConfigScreen/AppConfiguration"));
-const AssetSidebarExtension = React.lazy(() => import("../AssetSidebarWidget/AssetSidebar"));
+// const AssetSidebarExtension = React.lazy(() => import("../AssetSidebarWidget/AssetSidebar"));
 const StackDashboardExtension = React.lazy(() => import("../DashboardWidget/StackDashboard"));
 const EntrySidebarExtensionMLang = React.lazy(() => import("../SidebarWidget/EntrySidebarMLang"));
 const BCCTA = React.lazy(() => import("../CustomField/BCCTA"));
@@ -145,14 +145,14 @@ function App() {
               </Suspense>
             }
           />
-          <Route
+          {/* <Route
             path="/asset-sidebar"
             element={
               <Suspense>
                 <AssetSidebarExtension />
               </Suspense>
             }
-          />
+          /> */}
           <Route
             path="/stack-dashboard"
             element={
