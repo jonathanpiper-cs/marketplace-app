@@ -1,7 +1,7 @@
 import ContentstackSDK from "@contentstack/app-sdk";
 // import { removeHeadingMargin } from "./removeheadingmargin";
-import { SetFontColor } from "./setfontcolor";
-import { setFontSize } from "./setfontsize";
+// import { SetFontColor } from "./setfontcolor";
+// import { setFontSize } from "./setfontsize";
 // import { setFontWeight } from "./setfontweight";
 // import { insertBoilerplate } from "./boilerplate";
 // import { insertUniCH } from "./unicode";
@@ -17,13 +17,13 @@ export default ContentstackSDK.init().then(async (sdk) => {
 
   // const Rate = createRateRTE(RTE)
   // const RemoveHeadingMargin = removeHeadingMargin(RTE);
-    const SetFontColorPlugin = SetFontColor(RTE);
-    const SetFontSize = setFontSize(RTE);
+//   const SetFontColorPlugin = SetFontColor(RTE);
+//   const SetFontSize = setFontSize(RTE);
   //   const SetFontWeight = setFontWeight(RTE);
   //   const InsertBoilerplate = insertBoilerplate(RTE);
-//   const InsertUniCH = insertUniCH(RTE);
+  //   const InsertUniCH = insertUniCH(RTE);
   // const Highlight = highlight(RTE)
-    const Nofollow = nofollow(RTE);
+  const Nofollow = nofollow(RTE);
   // const Html = html(RTE)
 
   // const AddWidth = addWidth(RTE);
@@ -34,8 +34,8 @@ export default ContentstackSDK.init().then(async (sdk) => {
     // SetFontWeight,
     // AddWidth,
     // InsertBoilerplate,
-    SetFontColorPlugin,
-    SetFontSize,
+    // SetFontColorPlugin,
+    // SetFontSize,
     // SetFontWeight,
     // InsertUniCH,
     // Highlight,
